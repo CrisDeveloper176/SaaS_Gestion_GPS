@@ -1,0 +1,6 @@
+-r base.txt
+
+pytest==8.*
+pytest-django==4.*
+factory-boy==3.*
+faker==25.*

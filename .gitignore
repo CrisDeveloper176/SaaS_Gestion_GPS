@@ -1,0 +1,22 @@
+# Entornos virtuales
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Variables de entorno
+.env
+
+# Archivos de la base de datos (si usaras SQLite local)
+db.sqlite3
+
+# Logs
+debug_ws.log
+*.log
+
+# Caches
+.pytest_cache/

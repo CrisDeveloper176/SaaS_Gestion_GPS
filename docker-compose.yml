@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: fleet_db
+    environment:
+      POSTGRES_DB: fleet_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-Cris960?}
+    ports:
+      - "5444:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    container_name: fleet_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  celery_worker:
+    build: .
+    container_name: fleet_celery_worker
+    command: celery -A config worker -B -l info
+    volumes:
+      - .:/app
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - DB_HOST=db
+      - DB_NAME=fleet_db
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-Cris960?}
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+volumes:
+  postgres_data:

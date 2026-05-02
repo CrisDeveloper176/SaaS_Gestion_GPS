@@ -1,0 +1,38 @@
+# Core
+Django==5.0.*
+djangorestframework==3.15.*
+django-cors-headers==4.*
+
+# Autenticación JWT
+djangorestframework-simplejwt==5.*
+
+# WebSockets / Tiempo Real (Fase 1 setup)
+channels==4.*
+channels-redis==4.*
+daphne==4.*
+
+# Base de Datos
+psycopg[binary]==3.*
+django-timescaledb==0.*
+
+# Tareas Asíncronas
+celery==5.*
+redis==5.*
+django-celery-beat==2.*
+django-celery-results==2.*
+
+# Caché
+django-redis==5.*
+
+# Filtros y búsqueda
+django-filter==24.*
+
+# Documentación API
+drf-spectacular==0.27.*
+
+# Seguridad / Utilidades
+python-decouple==3.*
+
+# Observabilidad (Logging y Métricas)
+django-prometheus==2.*
+structlog==24.*
