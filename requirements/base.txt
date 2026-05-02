@@ -36,3 +36,17 @@ python-decouple==3.*
 # Observabilidad (Logging y Métricas)
 django-prometheus==2.*
 structlog==24.*
+
+# Tests
+pytest==8.*
+pytest-django==4.*
+pytest-cov==4.*
+pytest-mock==3.*
+mock==5.*
+factory-boy==3.*
+
+# Herramientas de análisis estático
+ruff==0.8.*
+mypy==1.11.*
+
+
