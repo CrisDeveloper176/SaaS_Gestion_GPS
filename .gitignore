@@ -10,6 +10,8 @@ __pycache__/
 
 # Variables de entorno
 .env
+.env.local
+.env.production
 
 # Archivos de la base de datos (si usaras SQLite local)
 db.sqlite3
